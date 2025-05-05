@@ -4,11 +4,19 @@ public class StaticInteractableItems : MonoBehaviour, IInteractable
 {
     Transform itemSpawnPoint;
     [SerializeField] GameObject itemToSpawn;
-    [SerializeField] Vector3 spawnOffset;
+    [SerializeField] Vector3 spawnPositionOffset;
+
+    GameObject sceneObject;
     public void Interact()
     {
-        itemSpawnPoint = GameManager.Instance.GetItemSpawnPoint();
+        if (sceneObject == null)
+        {
+            itemSpawnPoint = GameManager.Instance.GetItemSpawnPoint();
 
-        Instantiate(itemToSpawn, itemSpawnPoint.position + spawnOffset,Quaternion.identity);
+            sceneObject = Instantiate(itemToSpawn, itemSpawnPoint.position + spawnPositionOffset, Quaternion.identity);
+            GameManager.Instance.EnableInspectItems(sceneObject);
+        }
+        else
+            GameManager.Instance.EnableInspectItems(sceneObject);
     }
 }

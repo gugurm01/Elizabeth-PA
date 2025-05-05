@@ -4,8 +4,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    [Header("Inspect items Variables")]
     [SerializeField] Camera itemOverlayCam;
     [SerializeField] Transform ItemsSpawnPoint;
+    GameObject _activeItem;
 
     private void Awake()
     {
@@ -14,13 +16,33 @@ public class GameManager : MonoBehaviour
         else
             Destroy(this);
     }
-    public void OverlayCamState(bool isActive) 
+
+    public void EnableInspectItems(GameObject itemToActivate) 
     {
-        itemOverlayCam.enabled = isActive;
+        _activeItem = itemToActivate;
+        itemOverlayCam.enabled = true;
+        _activeItem.SetActive(true);
     }
 
+    public void DisableInspectItems() 
+    {
+        if (_activeItem == null)
+        {
+            Debug.LogWarning("No Item to deactivate!");
+            return;
+        }
+
+        _activeItem.SetActive(false);
+        itemOverlayCam.enabled = false;
+        _activeItem = null;
+    }
     public Transform GetItemSpawnPoint() 
     {
         return ItemsSpawnPoint;
+    }
+
+    public Camera GetItemCamera()
+    {
+        return itemOverlayCam;
     }
 }
