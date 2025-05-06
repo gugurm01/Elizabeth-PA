@@ -6,23 +6,27 @@ public class PlayerInteractions : MonoBehaviour
     [SerializeField] private LayerMask interactableLayer;
     [SerializeField] private Transform rayOrigin;
 
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            Ray ray = new Ray(rayOrigin.position, rayOrigin.forward);
-            if (Physics.Raycast(ray, out RaycastHit hit, interactRange, interactableLayer))
+            if (ComputerManager.Instance != null && ComputerManager.Instance.IsUsingComputer)
             {
-                IInteractable interactable = hit.collider.GetComponent<IInteractable>();
-                if (interactable != null)
-                {
-                    interactable.Interact();
-                }
-                else
-                {
-                    print("Se você não gosta do seu destino, não o aceite. Em vez disso, tenha a coragem para transformá-lo naquilo que você quer que ele seja.");
-                }
+                ComputerManager.Instance.ExitComputer();
             }
+            else
+            {
+                TryInteract();
+            }
+        }
+    }
+
+    private void TryInteract()
+    {
+        if (Physics.Raycast(rayOrigin.position, rayOrigin.forward, out RaycastHit hit, interactRange, interactableLayer))
+        {
+            IInteractable interactable = hit.collider.GetComponent<IInteractable>();
+            interactable?.Interact();
         }
     }
 
