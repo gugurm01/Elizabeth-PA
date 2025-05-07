@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerInteractions : MonoBehaviour
 {
     [SerializeField] private float interactRange = 3f;
-    [SerializeField] private LayerMask interactableLayer;
+    [SerializeField] private LayerMask obstructionMask;
     [SerializeField] private Transform rayOrigin;
 
     private void Update()
@@ -23,10 +23,14 @@ public class PlayerInteractions : MonoBehaviour
 
     private void TryInteract()
     {
-        if (Physics.Raycast(rayOrigin.position, rayOrigin.forward, out RaycastHit hit, interactRange, interactableLayer))
+        if (Physics.Raycast(rayOrigin.position, rayOrigin.forward, out RaycastHit hit, interactRange))
         {
-            IInteractable interactable = hit.collider.GetComponent<IInteractable>();
-            interactable?.Interact();
+            var interactable = hit.collider.GetComponent<IInteractable>();
+
+            if (interactable != null && !Physics.Raycast(rayOrigin.position, rayOrigin.forward, hit.distance, obstructionMask))
+            {
+                interactable.Interact();
+            }
         }
     }
 

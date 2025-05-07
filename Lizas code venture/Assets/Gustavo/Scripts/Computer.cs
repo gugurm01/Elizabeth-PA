@@ -1,8 +1,11 @@
+using Cinemachine;
 using UnityEngine;
 
 public class Computer : MonoBehaviour, IInteractable
 {
     private bool isInUse = false;
+
+    [SerializeField] private CinemachineVirtualCamera computerCamera;
 
     public void Interact()
     {
@@ -16,7 +19,7 @@ public class Computer : MonoBehaviour, IInteractable
     {
         isInUse = true;
         Debug.Log("Entrou no computador.");
-        ComputerManager.Instance.EnterComputer(this);
+        ComputerManager.Instance.EnterComputer(this, computerCamera);
     }
 
     private void ExitComputer()
@@ -26,7 +29,6 @@ public class Computer : MonoBehaviour, IInteractable
         ComputerManager.Instance.ExitComputer();
     }
 
-    // Chamado pelo ComputerManager para forçar saída do PC
     public void ExitComputerExternally()
     {
         isInUse = false;
