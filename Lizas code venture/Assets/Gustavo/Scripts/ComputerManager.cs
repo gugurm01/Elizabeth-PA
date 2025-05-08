@@ -61,10 +61,12 @@ public class ComputerManager : MonoBehaviour
     private void DisablePlayerControls()
     {
         PlayerManager.Instance.playerMove.enabled = false;
+        PlayerManager.Instance.UnlockCursor();
     }
 
     private void EnablePlayerControls()
     {
         PlayerManager.Instance.playerMove.enabled = true;
+        PlayerManager.Instance.LockCursor();
     }
 }
