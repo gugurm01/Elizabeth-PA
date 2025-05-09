@@ -12,20 +12,22 @@ public class Windows : MonoBehaviour
 
     [Header("Painéis")]
     [SerializeField] private GameObject loginPanel;
+    [SerializeField] private GameObject loginPanelParent;
     [SerializeField] private GameObject loggedInPanel;
     [SerializeField] private GameObject errorPanel;
 
     [Header("Login UI")]
-    [SerializeField] private TMP_Text usernameText;
+    [SerializeField] private TMP_InputField usernameInput;
     [SerializeField] private TMP_InputField passwordInput;
     [SerializeField] private Button loginButton;
+    [SerializeField] CanvasGroup canvasGroup;
 
     [Header("Erro UI")]
     [SerializeField] private Button okButton;
 
     [Header("Credenciais")]
-    [SerializeField] private string correctPassword = "1234";
-    [SerializeField] private string displayedUsername = "Administrador";
+    [SerializeField] private string correctPassword;
+    [SerializeField] private string correctUsername;
 
     private LoginState currentState;
 
@@ -33,9 +35,13 @@ public class Windows : MonoBehaviour
     {
         SetState(LoginState.LOGIN);
 
-        usernameText.text = displayedUsername;
+        usernameInput.contentType = TMP_InputField.ContentType.Standard;
         passwordInput.contentType = TMP_InputField.ContentType.Password;
-        passwordInput.ActivateInputField();
+
+        usernameInput.text = "";
+        passwordInput.text = "";
+
+        usernameInput.ActivateInputField();
 
         loginButton.onClick.AddListener(HandleLogin);
         okButton.onClick.AddListener(ReturnToLogin);
@@ -53,7 +59,7 @@ public class Windows : MonoBehaviour
 
     private void HandleLogin()
     {
-        if (passwordInput.text == correctPassword)
+        if (passwordInput.text == correctPassword && usernameInput.text == correctUsername)
         {
             SetState(LoginState.LOGADO);
         }
@@ -69,12 +75,19 @@ public class Windows : MonoBehaviour
         loginPanel.SetActive(true);
         passwordInput.text = "";
         passwordInput.ActivateInputField();
+        canvasGroup.alpha = 1f;
+        canvasGroup.blocksRaycasts = true;
+        canvasGroup.interactable = true;
     }
 
     private void ShowError()
     {
         loginPanel.SetActive(false);
         errorPanel.SetActive(true);
+
+        canvasGroup.alpha = 1f;
+        canvasGroup.blocksRaycasts = true;
+        canvasGroup.interactable = true;
     }
 
     private void SetState(LoginState newState)
@@ -84,15 +97,13 @@ public class Windows : MonoBehaviour
         switch (newState)
         {
             case LoginState.LOGIN:
-                loginPanel.SetActive(true);
-                errorPanel.SetActive(false);
+                loginPanelParent.SetActive(true);
                 loggedInPanel.SetActive(false);
                 break;
 
             case LoginState.LOGADO:
-                loginPanel.SetActive(false);
-                errorPanel.SetActive(false);
                 loggedInPanel.SetActive(true);
+                loginPanelParent.SetActive(false);
                 break;
         }
     }
