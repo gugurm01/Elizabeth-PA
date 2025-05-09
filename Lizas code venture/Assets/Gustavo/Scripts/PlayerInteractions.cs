@@ -10,14 +10,7 @@ public class PlayerInteractions : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (ComputerManager.Instance != null && ComputerManager.Instance.IsUsingComputer)
-            {
-                ComputerManager.Instance.ExitComputer();
-            }
-            else
-            {
-                TryInteract();
-            }
+            TryInteract();
         }
     }
 

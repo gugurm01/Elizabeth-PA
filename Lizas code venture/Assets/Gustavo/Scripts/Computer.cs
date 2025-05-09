@@ -17,10 +17,9 @@ public class Computer : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        if (isInUse)
-            ExitComputer();
-        else
-            EnterComputer();
+        if (isInUse) return;
+
+        EnterComputer();
     }
 
     private void EnterComputer()
@@ -80,6 +79,14 @@ public class Computer : MonoBehaviour, IInteractable
             computerCanvas.blocksRaycasts = false;
             computerCanvas.interactable = false;
             computerCanvas.gameObject.SetActive(false);
+        }
+    }
+
+    public void OnExitComputerButton()
+    {
+        if (isInUse)
+        {
+            ExitComputer();
         }
     }
 }
