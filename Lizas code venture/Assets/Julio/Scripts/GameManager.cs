@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
         _activeItem = itemToActivate;
         itemOverlayCam.enabled = true;
         _activeItem.SetActive(true);
+
+        ComputerManager.Instance.DisablePlayerControls();
     }
 
     public void DisableInspectItems() 
@@ -35,6 +37,9 @@ public class GameManager : MonoBehaviour
         _activeItem.SetActive(false);
         itemOverlayCam.enabled = false;
         _activeItem = null;
+
+        ComputerManager.Instance.EnablePlayerControls();
+
     }
     public Transform GetItemSpawnPoint() 
     {
