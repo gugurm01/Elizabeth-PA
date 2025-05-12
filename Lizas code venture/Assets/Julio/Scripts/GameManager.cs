@@ -4,6 +4,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    [Header("Player Related")]
+    [SerializeField] Camera playerCam;
+    [SerializeField] GameObject newUi;
+
     [Header("Inspect items Variables")]
     [SerializeField] Camera itemOverlayCam;
     [SerializeField] Transform ItemsSpawnPoint;
@@ -20,10 +24,13 @@ public class GameManager : MonoBehaviour
     public void EnableInspectItems(GameObject itemToActivate) 
     {
         _activeItem = itemToActivate;
-        itemOverlayCam.enabled = true;
         _activeItem.SetActive(true);
 
         ComputerManager.Instance.DisablePlayerControls();
+        playerCam.enabled = false;
+
+        newUi.SetActive(true);
+        itemOverlayCam.enabled = true;
     }
 
     public void DisableInspectItems() 
@@ -35,10 +42,13 @@ public class GameManager : MonoBehaviour
         }
 
         _activeItem.SetActive(false);
-        itemOverlayCam.enabled = false;
         _activeItem = null;
 
         ComputerManager.Instance.EnablePlayerControls();
+        playerCam.enabled = true;
+
+        newUi.SetActive(false);
+        itemOverlayCam.enabled = false;
 
     }
     public Transform GetItemSpawnPoint() 
