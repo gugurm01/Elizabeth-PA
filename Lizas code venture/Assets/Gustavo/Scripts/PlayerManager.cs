@@ -9,6 +9,7 @@ public class PlayerManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        LockCursor();
     }
 
     public void LockCursor()
