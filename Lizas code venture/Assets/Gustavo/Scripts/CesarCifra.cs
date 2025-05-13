@@ -14,6 +14,9 @@ public class CesarCifra : MonoBehaviour
     public GameObject letterUIPrefab;
     public Transform letterUIContainer;
 
+    public int TEMP_timesToPlay;
+    public GameObject TEMP_gameWin;
+
     private List<string> wordList = new List<string> {
         "code", "cipher", "intel", "decrypt", "war",
         "spies", "message", "signal", "radio", "freedom"
@@ -90,6 +93,13 @@ public class CesarCifra : MonoBehaviour
         {
             feedbackText.text = "Correto! Próximo...";
             feedbackText.color = Color.green;
+            TEMP_timesToPlay--;
+            if(TEMP_timesToPlay <= 0) 
+            {
+                TEMP_gameWin.SetActive(true);
+                this.enabled = false;
+            }
+            else
             Invoke(nameof(StartNewPuzzle), 1.5f);
         }
         else
