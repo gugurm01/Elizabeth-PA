@@ -37,7 +37,7 @@ public class MoveableItems : MonoBehaviour
             pitch -= mouseY;
             pitch = Mathf.Clamp(pitch, -89f, 89f);
 
-            transform.rotation = Quaternion.Euler(pitch, yaw, 0f);
+            transform.rotation = Quaternion.Euler(-pitch, -yaw, 0f);
         }
     }
 

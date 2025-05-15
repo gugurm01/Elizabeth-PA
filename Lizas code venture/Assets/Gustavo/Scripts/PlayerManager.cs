@@ -9,18 +9,27 @@ public class PlayerManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        LockCursor();
+        LockCursor(true);
     }
 
-    public void LockCursor()
+    public void LockCursor(bool state) 
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        if (state)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        else 
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
 
-    public void UnlockCursor()
+    public void PlayerControls(bool state) 
     {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        Instance.playerMove.enabled = state;
+        Instance.LockCursor(state);
+        PlayerInteractions.Instance.CanInteract(state);
     }
 }
