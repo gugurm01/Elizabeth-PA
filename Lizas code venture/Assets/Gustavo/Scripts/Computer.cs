@@ -12,6 +12,8 @@ public class Computer : MonoBehaviour, IInteractable
     [SerializeField] private float fadeDuration = 0.5f;
     [SerializeField] private float delayBeforeFade = 0.5f;
 
+    [SerializeField] ParticleSystem particle;
+
     private bool isInUse = false;
     private Coroutine fadeCoroutine;
 
@@ -20,6 +22,8 @@ public class Computer : MonoBehaviour, IInteractable
         if (isInUse) return;
 
         EnterComputer();
+        if (particle != null)
+            particle.Stop();
     }
 
     private void EnterComputer()

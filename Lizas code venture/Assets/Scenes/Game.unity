@@ -6517,6 +6517,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemToSpawn: {fileID: 6487669007540912174, guid: 6c85256f0c821244d881784265a3be48, type: 3}
   spawnPositionOffset: {x: 0, y: 0, z: 0}
+  particle: {fileID: 0}
 --- !u!65 &770573635
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11787,7 +11788,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 2702451988771180845}
-  particle: {fileID: 1594658413}
 --- !u!4 &886097883
 Transform:
   m_ObjectHideFlags: 0
@@ -12967,6 +12967,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panelToActivate: {fileID: 1362586776}
+  particle: {fileID: 0}
 --- !u!65 &1336371060
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13457,6 +13458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panelToActivate: {fileID: 1352831026}
+  particle: {fileID: 780542353}
 --- !u!65 &1539523960
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20577,6 +20579,7 @@ MonoBehaviour:
   computerCanvas: {fileID: 1017342910}
   fadeDuration: 0.5
   delayBeforeFade: 1.2
+  particle: {fileID: 1594658416}
 --- !u!1 &6939975492788713212
 GameObject:
   m_ObjectHideFlags: 0
