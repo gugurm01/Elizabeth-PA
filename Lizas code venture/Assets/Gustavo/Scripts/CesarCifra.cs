@@ -43,9 +43,10 @@ public class CesarCifra : MonoBehaviour
         }
         currentInputs.Clear();
 
-        // Palavra e shift aleatórios
-        currentWord = wordList[Random.Range(0, wordList.Count)].ToLower();
-        caesarShift = Random.Range(1, 25);
+        // Filtra palavras com no máximo 8 caracteres
+        List<string> filteredWords = wordList.FindAll(w => w.Length <= 8);
+        currentWord = filteredWords[Random.Range(0, filteredWords.Count)].ToLower();
+        caesarShift = Random.Range(1, 8);
         encryptedWord = Encrypt(currentWord, caesarShift);
 
         // Mostra palavra + deslocamento
@@ -57,13 +58,11 @@ public class CesarCifra : MonoBehaviour
         {
             GameObject uiElement = Instantiate(letterUIPrefab, letterUIContainer);
 
-            // Assumindo que os filhos do prefab tenham esses nomes:
             TMP_InputField input = uiElement.transform.Find("LetraInput").GetComponent<TMP_InputField>();
             Button plus = uiElement.transform.Find("PlusButton").GetComponent<Button>();
             Button minus = uiElement.transform.Find("MinusButton").GetComponent<Button>();
 
-            int index = i; // necessário para evitar closure incorreta
-
+            int index = i;
             plus.onClick.AddListener(() => ShiftLetter(index, +1));
             minus.onClick.AddListener(() => ShiftLetter(index, -1));
 
@@ -94,13 +93,15 @@ public class CesarCifra : MonoBehaviour
             feedbackText.text = "Correto! Próximo...";
             feedbackText.color = Color.green;
             TEMP_timesToPlay--;
-            if(TEMP_timesToPlay <= 0) 
+            if (TEMP_timesToPlay <= 0)
             {
                 TEMP_gameWin.SetActive(true);
                 this.enabled = false;
             }
             else
-            Invoke(nameof(StartNewPuzzle), 1.5f);
+            {
+                Invoke(nameof(StartNewPuzzle), 1.5f);
+            }
         }
         else
         {
