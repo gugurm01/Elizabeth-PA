@@ -6002,7 +6002,21 @@ MonoBehaviour:
   letterUIPrefab: {fileID: 8197481606345434252, guid: 7fe2b7da53b023942914e56cebd00a2a, type: 3}
   letterUIContainer: {fileID: 752985997}
   TEMP_timesToPlay: 2
-  TEMP_gameWin: {fileID: 447370871}
+  OnGameWin:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 886097886}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: ChangeScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Menu
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &631060679
 GameObject:
   m_ObjectHideFlags: 0
@@ -11768,6 +11782,7 @@ GameObject:
   - component: {fileID: 886097884}
   - component: {fileID: 886097882}
   - component: {fileID: 886097885}
+  - component: {fileID: 886097886}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -11833,6 +11848,18 @@ MonoBehaviour:
   newUi: {fileID: 1077476327}
   itemOverlayCam: {fileID: 1958289653}
   ItemsSpawnPoint: {fileID: 1665994677}
+--- !u!114 &886097886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886097881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc63788fa9a538f4c8ba7adabece5356, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &898075220
 GameObject:
   m_ObjectHideFlags: 0
@@ -13458,7 +13485,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panelToActivate: {fileID: 1352831026}
-  particle: {fileID: 780542353}
+  particle: {fileID: 0}
 --- !u!65 &1539523960
 BoxCollider:
   m_ObjectHideFlags: 0

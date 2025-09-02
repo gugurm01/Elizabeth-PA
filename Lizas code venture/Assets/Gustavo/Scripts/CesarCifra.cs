@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class CesarCifra : MonoBehaviour
@@ -15,7 +16,7 @@ public class CesarCifra : MonoBehaviour
     public Transform letterUIContainer;
 
     public int TEMP_timesToPlay;
-    public GameObject TEMP_gameWin;
+    public UnityEvent OnGameWin;
 
     private List<string> wordList = new List<string> {
         "code", "cipher", "intel", "decrypt", "war",
@@ -95,7 +96,7 @@ public class CesarCifra : MonoBehaviour
             TEMP_timesToPlay--;
             if (TEMP_timesToPlay <= 0)
             {
-                TEMP_gameWin.SetActive(true);
+                OnGameWin.Invoke();
                 this.enabled = false;
             }
             else

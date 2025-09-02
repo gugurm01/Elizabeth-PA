@@ -39,6 +39,7 @@ public class Computer : MonoBehaviour, IInteractable
         isInUse = false;
         Debug.Log("Saiu do computador.");
         ComputerManager.Instance.ExitComputer();
+        particle.Play();
         FadeCanvas(false);
     }
 
