@@ -12,10 +12,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c9d0e402d2364d4faf5a690232e38ac, type: 3}
   m_Name: 1
   m_EditorClassIdentifier: 
-  speakerName: "Roberto Cal\xE7as"
+  speakerName: Narrador
   paragraphs:
-  - "eu sou roberto cal\xE7as e eu adoro comer cal\xE7as no caf\xE9 da manha seu
-    bosta do caralho filho de uma putinha"
-  - asdsadasdsadsadho filho de uma putinha
-  - "eu sou roberto cal\xE7as e eu adoro comer cal\xE7as no caf\xE9 da manha seu
-    bosta do caralho filho de uma putinha"
+  - "Elizebeth Smith Friedman... esse nome carrega mais segredos do que qualquer
+    livro de hist\xF3ria consegue contar."
+  - "Nascida em 1892, em Indiana, ela era apenas uma jovem apaixonada por literatura...
+    at\xE9 que a paix\xE3o pelas palavras a levou para um mundo de cifras e enigmas."
+  - "Ela come\xE7ou sua carreira em uma mans\xE3o misteriosa, a Riverbank, onde decifrar
+    c\xF3digos se tornou parte de sua vida."
+  - "Foi ali que ela se tornou uma das primeiras mulheres cript\xF3grafas da hist\xF3ria."
+  - "Durante a Primeira Guerra Mundial, Elizebeth e seu marido, William, ajudaram
+    os Estados Unidos a entender mensagens inimigas... quando quase ningu\xE9m mais
+    sabia fazer isso."
+  - "Mas Elizebeth n\xE3o parou por a\xED."
+  - "Nos anos 1920 e 30, ela desmantelou redes inteiras de contrabandistas e mafiosos,
+    lendo mensagens secretas que ningu\xE9m mais conseguia entender."
+  - "Ela enfrentou gangues violentas sem jamais segurar uma arma, apenas com l\xE1pis,
+    papel e uma mente afiada."
+  - "Com a chegada da Segunda Guerra, Elizebeth se tornou a sombra por tr\xE1s das
+    vit\xF3rias americanas no mar."
+  - "Ela decifrou comunica\xE7\xF5es secretas da Alemanha nazista, ajudando a derrotar
+    submarinos que amea\xE7avam as costas dos EUA."
+  - "Seu trabalho salvou milhares de vidas, mas... permaneceu em segredo por d\xE9cadas."
+  - "Enquanto seu marido ganhou fama e reconhecimento, Elizebeth foi apagada da hist\xF3ria."
+  - "Ela viveu uma vida de servi\xE7o, quebrando mais de vinte mil c\xF3digos ao
+    longo de sua carreira."
+  - "Muitos acham que sua mente foi uma das mais brilhantes do s\xE9culo XX."
+  - Mas poucas pessoas conhecem seu nome.
+  - E se essa casa esconde algo que ela queria que o mundo soubesse?
+  - "Esses computadores antigos, esses c\xF3digos... talvez sejam sua \xFAltima mensagem
+    para n\xF3s."
+  - "Elizebeth sempre trabalhou nas sombras... talvez esteja na hora de traz\xEA-la
+    \xE0 luz."
+  - "Cada s\xEDmbolo, cada linha de c\xF3digo aqui... \xE9 uma parte dela, uma parte
+    da hist\xF3ria que quase se perdeu."
+  - "Agora \xE9 minha responsabilidade decifrar isso."

@@ -9,11 +9,7 @@ public class DialogueStarter : MonoBehaviour
 
     void Start()
     {
-        dialogueController.DisplayNextParagraph(dialogueText);
-
-        nextButton.onClick.AddListener(() =>
-        {
-            dialogueController.DisplayNextParagraph(dialogueText);
-        });
+        dialogueController.StartDialogue(dialogueText);
+        nextButton.onClick.AddListener(dialogueController.DisplayNextParagraph);
     }
 }
