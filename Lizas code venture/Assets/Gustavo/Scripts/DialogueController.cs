@@ -40,6 +40,8 @@ public class DialogueController : MonoBehaviour
 
         p = paragraphs.Dequeue();
         typeDialogueCoroutine = StartCoroutine(TypeDialogueText(p));
+
+        SoundManager.Instance.PlaySoundUI();
     }
 
     private void EndDialogue()
@@ -68,5 +70,6 @@ public class DialogueController : MonoBehaviour
         StopCoroutine(typeDialogueCoroutine);
         NPCDialogueText.maxVisibleCharacters = p.Length;
         isTyping = false;
+        SoundManager.Instance.PlaySoundUI();
     }
 }
